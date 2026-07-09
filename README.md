@@ -32,7 +32,7 @@ dotnet run
 Geben Sie den Startbetrag (in CHF, EUR, USD etc) als Zahl ein: 1000
 Vorraussichtliche Rendite pro Jahr in % eingeben: 9
 Es wird ohne Zinseszins und ohne Gebühren und Steuern gerechnet.
-
+```
 Ergebnisse:
 ------------------------------------------
 Nach 3 Monaten: CHF 1’022.50
@@ -40,3 +40,4 @@ Nach 6 Monaten: CHF 1’045.00
 Nach 1 Jahr: CHF 1’090.00
 Nach 2 Jahren: CHF 1’180.00
 Nach 3 Jahren: CHF 1’270.00
+```
