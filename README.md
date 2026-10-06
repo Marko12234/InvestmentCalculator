@@ -6,9 +6,9 @@ annual return rate.
 
 ## Features
 
-- Input: starting amount (CHF, EUR, USD, etc.) and expected annual 
+- Input: starting amount (for example CHF, EUR, USD) and expected annual 
   return in %
-- Output: projected value after 3 months, 6 months, 1, 2, and 3 years
+- Output: projected value after 3 months, 6 months, 1, 2, 3, 5, 10, 15 and 20 years
 - Uses simple interest (no compounding, no fees, no taxes)
 - Input validation: rejects negative numbers and invalid formats
 
@@ -26,7 +26,7 @@ dotnet run
 
 ## Example Output
 ```
-Geben Sie den Startbetrag (in CHF, EUR, USD etc) als Zahl ein: 1000
+Dieser Investment-Rechner ist für jede beliebige Währung geeignet. Geben Sie den Startbetrag (z.B. in CHF, EUR, USD) als Zahl ein: 1000
 Vorraussichtliche Rendite pro Jahr in % eingeben: 9
 Es wird ohne Zinseszins und ohne Gebühren und Steuern gerechnet.
 
@@ -37,4 +37,8 @@ Nach 6 Monaten: CHF 1’045.00
 Nach 1 Jahr: CHF 1’090.00
 Nach 2 Jahren: CHF 1’180.00
 Nach 3 Jahren: CHF 1’270.00
+Nach 5 Jahren: CHF 1’450.00
+Nach 10 Jahren: CHF 1’900.00
+Nach 15 Jahren: CHF 2’350.00
+Nach 20 Jahren: CHF 2’800.00
 ```
