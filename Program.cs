@@ -4,7 +4,7 @@ using System.Text;
 
 Console.WriteLine("=== Investment-Rechner ===\n");
 
-decimal startAmount = ReadDecimal("Geben Sie den Startbetrag (in CHF, EUR, USD etc) als Zahl ein: ");
+decimal startAmount = ReadDecimal("Dieser Investment-Rechner ist für jede beliebige Währung geeignet. Geben Sie den Startbetrag (z.B. in CHF, EUR, USD) als Zahl ein: ");
 decimal percentInput = ReadDecimal("Vorraussichtliche Rendite pro Jahr in % eingeben: ");
 
 decimal annualRate = percentInput / 100m;
@@ -14,21 +14,24 @@ Console.WriteLine("Es wird ohne Zinseszins und ohne Gebühren und Steuern gerech
 Console.WriteLine("\nErgebnisse:");
 Console.WriteLine("------------------------------------------");
 
-decimal value3M = startAmount + (startAmount * annualRate * 0.25m);
-Console.WriteLine($"Nach 3 Monaten: {value3M:C2}");
+(string Label, decimal Years)[] periods =
+{
+    ("3 Monaten", 0.25m),
+    ("6 Monaten", 0.5m),
+    ("1 Jahr", 1m),
+    ("2 Jahren", 2m),
+    ("3 Jahren", 3m),
+    ("5 Jahren", 5m),
+    ("10 Jahren", 10m),
+    ("15 Jahren", 15m),
+    ("20 Jahren", 20m)
+};
 
-decimal value6M = startAmount + (startAmount * annualRate * 0.5m);
-Console.WriteLine($"Nach 6 Monaten: {value6M:C2}");
-
-decimal value1Y = startAmount + (startAmount * annualRate * 1m);
-Console.WriteLine($"Nach 1 Jahr: {value1Y:C2}");
-
-decimal value2Y = startAmount + (startAmount * annualRate * 2m);
-Console.WriteLine($"Nach 2 Jahren: {value2Y:C2}");
-
-decimal value3Y = startAmount + (startAmount * annualRate * 3m);
-Console.WriteLine($"Nach 3 Jahren: {value3Y:C2}");
-
+foreach (var (label, years) in periods)
+{
+    decimal value = CalculateSimpleInterest(startAmount, annualRate, years);
+    Console.WriteLine($"Nach {label}: {value:N2}");
+}
 
 static decimal ReadDecimal(string message)
 {
@@ -45,4 +48,9 @@ static decimal ReadDecimal(string message)
 
         Console.WriteLine("Ungültige Eingabe. Bitte positive Zahl eingeben.\n");
     }
+}
+
+static decimal CalculateSimpleInterest(decimal start, decimal rate, decimal years)
+{
+    return start + (start * rate * years);
 }
